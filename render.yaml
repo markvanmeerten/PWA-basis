@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: laravel-backend
+    env: docker
+    repo: https://github.com/markvanmeerten/app-docker-basic-project-test-1
+    rootDir: backend
+    dockerfilePath: Dockerfile
+    buildCommand: ""
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: laravel-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: laravel-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: laravel-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: laravel-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: laravel-db
+          property: password
+
+  - type: web
+    name: react-frontend
+    env: static
+    repo: https://github.com/markvanmeerten/app-docker-basic-project-test-1
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    rootDir: frontend
+
+databases:
+  - name: laravel-db
+    postgresMajorVersion: 15
+    plan: free
