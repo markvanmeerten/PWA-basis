@@ -52,7 +52,7 @@ git clone https://github.com/<jouw-gebruikersnaam>/<projectnaam>.git
 VITE_API_URL=http://<jouw-ip-adres>:8000/api
 ```
 
-🔸 Vervang `<jouw-ip-adres>` door het IP-adres van jouw machine.
+🔸 Vervang `<jouw-ip-adres>` door het IP-adres van jouw machine.  
 Gebruik `ipconfig` (Windows) of `ip a` (macOS/Linux) om dit op te zoeken.
 
 > 📱 Hiermee kun je de frontend ook testen vanaf andere apparaten in hetzelfde WiFi-netwerk (zoals je telefoon).
@@ -88,7 +88,7 @@ Daarna zal Laravel correct verbinden met de database.
 - De **database container** start PostgreSQL
 - Je ziet in de terminal hoe je frontend bereikbaar is (bijv. `http://localhost:5173`)
 
-> ❗️ Let op: IP-adressen zoals `172.18.x.x` uit Docker zijn intern. Gebruik je **eigen** IP-adres van je laptop voor extern testen m.b.v. ``ipconfig``
+> ❗️ Let op: IP-adressen zoals `172.18.x.x` uit Docker zijn intern. Gebruik je **eigen** IP-adres van je laptop voor extern testen.
 
 #### 🔬 PWA testen?
 
@@ -106,19 +106,12 @@ Dat combineert `npm run build` en `npm run preview`.
 
 Wil je artisan-commando’s of database-opdrachten uitvoeren?
 
-Gebruik `docker-compose exec -it <container> <command>`, bijvoorbeeld:
+Gebruik `docker-compose exec` gevolgd door de service:
 
 ```bash
-docker exec -it laravel-backend php artisan migrate
-docker exec -it react-frontend npm install
-docker exec -it db psql -U laravel -d laravel
-```
-
-Het is nog handiger om een terminal zoals ``bash`` of ``sh`` te starten vanuit de container zelf, dan kun je commands runnen die **in** de container in kwestie worden uitgevoerd, maar ook files verkennen, logs lezen, etc.
-
-```bash
-docker exec -it bash
-docker exec -it sh
+docker-compose exec laravel-backend php artisan migrate
+docker-compose exec react-frontend npm install
+docker-compose exec db psql -U laravel -d laravel
 ```
 
 ---
@@ -133,7 +126,7 @@ Zoek in `render.yml` naar:
 repo: https://github.com/##<URL van je repo>##
 ```
 
-en vervang dit met de URL van jouw repository, zoals bijvoorbeeld:
+en vervang dit met de URL van jouw repository, zoals:
 
 ```yaml
 repo: https://github.com/markvanmeerten/PWA-basis
@@ -171,3 +164,4 @@ Value:  https://<jouw-laravel-backend>.onrender.com/api
 
 Je hebt nu een werkende, schaalbare PWA ontwikkelomgeving — lokaal én online.  
 Veel succes met bouwen! 💡
+---
