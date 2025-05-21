@@ -19,7 +19,7 @@ services:
       DB_PORT: 5432
       DB_DATABASE: laravel
       DB_USERNAME: laravel
-      DB_PASSWORD: laravel
+      DB_PASSWORD: secret
     working_dir: /var/www
 
   db:
@@ -31,7 +31,7 @@ services:
     environment: # Worden alleen lokaal gebruikt, Render overschrijft deze met eigen unieke waardes
       POSTGRES_DB: laravel
       POSTGRES_USER: laravel
-      POSTGRES_PASSWORD: laravel
+      POSTGRES_PASSWORD: secret
     volumes:
       - pgdata:/var/lib/postgresql/data
 
