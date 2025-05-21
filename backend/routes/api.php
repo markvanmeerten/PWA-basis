@@ -20,5 +20,9 @@ Route::post('/increment/{id}', function ($id) {
 Route::get('/increment/{id}', function ($id) {
     $counter = Counter::where('id', $id)->first();
 
+    if (!$counter) {
+        $counter = Counter::create(['id' => $id, 'value' => 0]);
+    }
+
     return response()->json(['value' => $counter->value]);
 });
