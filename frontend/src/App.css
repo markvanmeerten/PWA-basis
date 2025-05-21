@@ -6,6 +6,19 @@
 
 .inline {
   display: flex;
+  gap: 2rem; /* optioneel, ruimte tussen de kaarten */
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 100%;
+}
+
+/* Vanaf 768px en breder: twee kolommen */
+@media screen and (min-width: 768px) {
+  .card {
+    flex: 1 1 45%;
+  }
 }
 
 .logo {
@@ -33,8 +46,4 @@
   .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
 }
