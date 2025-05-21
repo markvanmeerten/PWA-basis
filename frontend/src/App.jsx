@@ -89,70 +89,47 @@ function App() {
         deployen en hosten op <a href="https://render.com/">Render.com</a>
       </p>
 
-      <div className="inline">
-        <div className="card" style={{ width: "50%" }}>
-          <h2>Technieken</h2>
+      <ul>
+        <li>
+          <a href="https://www.docker.com/">Docker</a>
+        </li>
+        <li>
+          <a href="https://react.dev/">React</a> &{" "}
+          <a href="https://vite.dev/">Vite</a>
+        </li>
+        <li>
+          <a href="https://laravel.com/">Laravel</a>
+        </li>
+        <li>
+          <a href="https://www.postgresql.org/">PostgreSQL</a>
+        </li>
+        <li>
+          <a href="https://vite-pwa-org.netlify.app/">PWA plugin Vite</a>
+        </li>
+      </ul>
+    
+      <div className="card" style={{ width: "50%" }}>
+        <h2>Testen</h2>
 
-          <ul>
+        <ul>
+          <li>
+            Simpele counter om te testen of de backend en database werken
+            <br />
+            <button onClick={handleClickCount} disabled={loading}>
+              {loading ? "⏳ Laden..." : `Count: ${count}`}
+            </button>
+          </li>
+          {showInstallButton && (
             <li>
-              <a href="https://www.docker.com/">Docker</a> <br /> Alle
-              onderdelen draaien in geïsoleerde containers (virtuele machines),
-              zodat jij en je teamgenoot een identiek dezelfde ontwikkelomgeving
-              hebben.
-            </li>
-            <li>
-              <a href="https://react.dev/">React</a> &{" "}
-              <a href="https://vite.dev/">Vite</a>
+              Installeer de PWA via de adresbalk of door op onderstaande knop
+              te drukken
               <br />
-              De gebruikersinterface is gebouwd met React, een populaire
-              JavaScript-bibliotheek voor interactieve webapps. Vite zorgt voor
-              snelle ontwikkeling en build-tijd dankzij moderne bundling.
-            </li>
-            <li>
-              <a href="https://laravel.com/">Laravel</a> <br /> De backend is
-              ontwikkeld met Laravel, een krachtig PHP-framework dat het bouwen
-              van API’s eenvoudig en overzichtelijk maakt. Laravel verzorgt o.a.
-              authenticatie, routing en communicatie met de database.
-            </li>
-            <li>
-              <a href="https://www.postgresql.org/">PostgreSQL</a> <br /> De
-              relationele database waar alle gegevens in worden opgeslagen.
-              PostgreSQL is robuust, open source, en wordt breed gebruikt in
-              professionele omgevingen.
-            </li>
-            <li>
-              <a href="https://vite-pwa-org.netlify.app/">PWA plugin Vite</a>
-              <br />
-              Deze plugin laat je m.b.v. een configuratiefile een basic manifest
-              en service-worker genereren om installatie op mobiele apparaten
-              mogelijk te maken. Deze kun je zelf nog uitbreiden met caching en
-              offline beschikbaarheid.
-            </li>
-          </ul>
-        </div>
-        <div className="card" style={{ width: "50%" }}>
-          <h2>Testen</h2>
-
-          <ul>
-            <li>
-              Simpele counter om te testen of de backend en database werken
-              <br />
-              <button onClick={handleClickCount} disabled={loading}>
-                {loading ? "⏳ Laden..." : `Count: ${count}`}
+              <button onClick={handleInstallClick}>
+                📲 Installeer deze app
               </button>
             </li>
-            {showInstallButton && (
-              <li>
-                Installeer de PWA via de adresbalk of door op onderstaande knop
-                te drukken
-                <br />
-                <button onClick={handleInstallClick}>
-                  📲 Installeer deze app
-                </button>
-              </li>
-            )}
-          </ul>
-        </div>
+          )}
+        </ul>
       </div>
     </>
   );
