@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import technovaLogo from "./assets/technova_logo.png";
 import "./App.css";
 
 function App() {
@@ -74,29 +73,40 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <div className="card inline">
+        <a href="https://www.technovacollege.nl/" target="_blank">
+          <img src={technovaLogo} className="logo" alt="Technova logo" />
         </a>
 
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 style={{ color: "purple" }}>Technova</h1>
       </div>
 
-      <h1>Vite + React + PWA</h1>
-
       <div className="card">
+        <h2>Project</h2>
+        <p>
+          Een project dat je kunt gebruiken voor het Leenplaats project. Het
+          maakt gebruik van Docker en combineert:
+        </p>
+
+        <ul>
+          <li>Backend: Laravel + PostgreSQL</li>
+          <li>Frontend: Vite + React</li>
+          <li>
+            Hosting: <a href="https://render.com/">Render.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="card inline">
+        <h2>Buttons:</h2>
         <button onClick={handleClickCount} disabled={loading}>
           {loading ? "⏳ Laden..." : `Count: ${count}`}
         </button>
-      </div>
 
-      {showInstallButton && (
-        <div className="card">
+        {showInstallButton && (
           <button onClick={handleInstallClick}>📲 Installeer deze app</button>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 }
