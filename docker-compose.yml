@@ -40,6 +40,7 @@ services:
       context: ./frontend
     ports:
       - "5173:5173"
+      - "4173:4173"
     volumes:
       - type: bind
         source: ./frontend
