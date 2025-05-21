@@ -13,13 +13,13 @@ services:
         target: /var/www/vendor
     depends_on:
       - db
-    environment:
+    environment: # Worden alleen lokaal gebruikt, Render overschrijft deze met eigen unieke waardes
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
       DB_DATABASE: laravel
       DB_USERNAME: laravel
-      DB_PASSWORD: secret
+      DB_PASSWORD: laravel
     working_dir: /var/www
 
   db:
@@ -28,10 +28,10 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    environment:
+    environment: # Worden alleen lokaal gebruikt, Render overschrijft deze met eigen unieke waardes
       POSTGRES_DB: laravel
       POSTGRES_USER: laravel
-      POSTGRES_PASSWORD: secret
+      POSTGRES_PASSWORD: laravel
     volumes:
       - pgdata:/var/lib/postgresql/data
 

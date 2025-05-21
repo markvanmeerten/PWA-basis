@@ -2,42 +2,42 @@ services:
   - type: web
     name: laravel-backend
     env: docker
-    repo: https://github.com/markvanmeerten/app-docker-basic-project-test-1
+    repo: ## Vervang deze comment met de waarde van je repository url, bijv: https://github.com/markvanmeerten/PWA-basis
     rootDir: backend
     dockerfilePath: Dockerfile
     buildCommand: ""
-    envVars:
+    envVars: ## Render voegt de volgende variabelen toe aan je environment. 
       - key: APP_ENV
-        value: production
+        value: production # hardcoded
       - key: APP_KEY
         generateValue: true
       - key: DB_CONNECTION
-        value: pgsql
+        value: pgsql # hardcoded
       - key: DB_HOST
-        fromDatabase:
+        fromDatabase:  # Haal de automatisch gegenereerde waarde op
           name: laravel-db
           property: host
       - key: DB_PORT
-        fromDatabase:
+        fromDatabase: # Haal de automatisch gegenereerde waarde op
           name: laravel-db
           property: port
       - key: DB_DATABASE
-        fromDatabase:
+        fromDatabase: # Haal de automatisch gegenereerde waarde op
           name: laravel-db
           property: database
       - key: DB_USERNAME
-        fromDatabase:
+        fromDatabase: # Haal de automatisch gegenereerde waarde op
           name: laravel-db
           property: user
       - key: DB_PASSWORD
-        fromDatabase:
+        fromDatabase: # Haal de automatisch gegenereerde waarde op
           name: laravel-db
           property: password
 
   - type: web
     name: react-frontend
     env: static
-    repo: https://github.com/markvanmeerten/app-docker-basic-project-test-1
+    repo: ## Vervang deze comment met de waarde van je repository url, bijv: https://github.com/markvanmeerten/PWA-basis
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     rootDir: frontend
